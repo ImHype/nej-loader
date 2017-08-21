@@ -10,20 +10,17 @@ function replacePlaceholderArgs({
     args,
     replaceArgs = {}
 }) {
-    // clone
     const dependencies = [...rawDependencies];
     // clone
-    args = [...args];
 
-    args = [...args].map((item, i) => {
-        const dependency = dependencies[i];
-        if (replaceArgs[dependency]) {
+    const dependenciesArgs = dependencies.map((dependency, i) => {
+        const arg = args[i];
+        if (dependency && replaceArgs[dependency]) {
             return replaceArgs[dependency];
         }
-        return item;
+        return arg;
     });
-
-    return args;
+    return [...dependenciesArgs, ...args.slice(dependenciesArgs.length)];
 }
 
 module.exports = replacePlaceholderArgs;

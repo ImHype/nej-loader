@@ -3,6 +3,7 @@ const isomorphicDefine = require('./isomorphicDefine');
 function createCompiler(source) {
     const compileFunctionString = [
         'const {define, output} = isomorphicDefine(options);',
+        'const NEJ = {define};',
         source,
         ';return output();'
     ].join('');

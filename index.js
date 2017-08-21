@@ -1,4 +1,4 @@
-const Source = require('./source');
+const source = require('./source');
 const analysis = require('./analysis');
 const transform = require( './transform');
 const loaderUtils = require ('loader-utils');
@@ -16,10 +16,17 @@ function nejLoader(raw) {
     this.cacheable && this.cacheable();
 
     let {
+        code: sourceCode,
+        err: sourceError,
         headCode,
         content
-    } = new Source().source(raw);
-    
+    } = source(raw, filename);
+
+    if (sourceCode === -1) {
+        console.error(sourceError);
+        return [headCode, content].join('');
+    }
+
     const {
         code,
         dependencies,
@@ -35,7 +42,8 @@ function nejLoader(raw) {
             dependencies,
             rawDependencies,
             patchList,
-            functionBody
+            functionBody,
+            filename
         }, {
             alias: outputAlias,
             outputAlias,

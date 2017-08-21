@@ -4,13 +4,13 @@ function replaceWrapFunctionHead (result, str) {
 
 module.exports = function ({
     functionBody,
-    variableDefineStr
+    variableDefineStr,
+    filename
 }) {
     let source = replaceWrapFunctionHead(functionBody, () => {
         return 'function module_exports () {' + '\n' + (variableDefineStr || '');
     });
-    
     source += 'module.exports = module_exports.apply(this);';
-
+    source += '//' + filename;
     return source;
 };

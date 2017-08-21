@@ -1,5 +1,6 @@
 const VARIABLE = 'var ';
 const EQUAL = ' = ';
+const SEMICOLON = ';';
 const path = require('path');
 
 function getAppendItems() {
@@ -32,7 +33,8 @@ function getDependenciesRequire({name, uri}) {
             name,
             EQUAL
         ]: []),
-        requreStatement
+        requreStatement,
+        SEMICOLON
     ].join('');
 }
 
@@ -43,7 +45,8 @@ function getVariableDefine({name, defineVaribaleStr}) {
         VARIABLE,
         name,
         EQUAL,
-        requreStatement
+        requreStatement,
+        SEMICOLON
     ].join('');
 }
 
@@ -51,7 +54,8 @@ function getPatchRequire (uri) {
     const requreStatement = [
         'if (WITHPATCH) {',
         `require('${uri}')`,
-        '};'
+        '};',
+        SEMICOLON
     ];
     return requreStatement.join('');
 }
@@ -94,7 +98,7 @@ function getFinalDependency({
     }
     
     dependency = getFinalPath(dependency);
-
+    
     dependency = replaceDosSep(dependency);
 
     return dependency;
@@ -124,9 +128,8 @@ function getVariable({
         }, {
             alias
         })
-    );
+    );    
 
-   
     const matchedDependencies = mergeDepsAndArgs(dependencies, args);
     let variables = matchedDependencies.map(getDependenciesRequire);
 
@@ -142,14 +145,13 @@ function getVariable({
             .map((arg, index) => {
                 return {
                     name: arg,
-                    defineVaribaleStr: appendItems[index]
+                    defineVaribaleStr: appendItems[index] || '{}'
                 };
             });
         variables = [...variables, 
-            variableDefineList.map(getVariableDefine)
+            ...variableDefineList.map(getVariableDefine)
         ];
     }
-
     return variables.join('\n');
 }
 
