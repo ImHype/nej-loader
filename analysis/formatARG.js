@@ -30,8 +30,8 @@ module.exports = function doFormatARG (args) {
         }
     }
 
-    if (!_args[0]) {
-        _args[0] = [];
+    if (!_args[1]) {
+        _args[1] = [];
     }
 
     if (!_args[2]) {

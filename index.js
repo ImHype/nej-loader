@@ -23,12 +23,12 @@ function nejLoader(raw) {
     } = source(raw, filename);
 
     if (sourceCode === -1) {
-        console.error(sourceError);
-        return [headCode, content].join('');
+        throw sourceError;
     }
 
     const {
-        code,
+        code: analysisCode,
+        err: analysisError,
         dependencies,
         rawDependencies,
         patchList,
@@ -37,20 +37,22 @@ function nejLoader(raw) {
         alias, filename
     });
 
-    if (code !== -1) {
-        content = transform({
-            dependencies,
-            rawDependencies,
-            patchList,
-            functionBody,
-            filename
-        }, {
-            alias: outputAlias,
-            outputAlias,
-            replaceArgs,
-            isPatch
-        });
+    if (analysisCode === -1) {
+        throw analysisError;
     }
+
+    content = transform({
+        dependencies,
+        rawDependencies,
+        patchList,
+        functionBody,
+        filename
+    }, {
+        alias: outputAlias,
+        outputAlias,
+        replaceArgs,
+        isPatch
+    });
 
     return [headCode, content].join('');
 }
