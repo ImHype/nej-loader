@@ -1,11 +1,13 @@
-module.exports = function (text) {
+module.exports = function ({
+    raw
+}) {
     let reg = /([^A-Za-z0-9]*)((NEJ\.define)|(define))([\s\S]*?)\(/g;
 
-    const iterator = next(reg, text);
+    const iterator = next(reg, raw);
     
     for (let matched of iterator) {
         const startIndex = matched.index + matched[1].length;
-        const headCode = text.substr(0, startIndex);
+        const headCode = raw.substr(0, startIndex);
 
         const openBlockComments = headCode.match(comment.blockOpen());
         const closeBlockComments = headCode.match(comment.blockClose());
@@ -23,7 +25,7 @@ module.exports = function (text) {
 
         return {
             headCode,
-            content: text.substr(startIndex),
+            content: raw.substr(startIndex),
         };
     }
 

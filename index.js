@@ -20,7 +20,9 @@ function nejLoader(raw) {
         err: sourceError,
         headCode,
         content
-    } = source(raw, filename);
+    } = source({
+        raw, filename
+    });
 
     if (sourceCode === -1) {
         throw sourceError;
