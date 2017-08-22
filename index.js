@@ -1,6 +1,6 @@
-const source = require('./source');
-const analysis = require('./analysis');
-const transform = require( './transform');
+const CodeSplit = require('./lib/CodeSplit');
+const AnalysisCode = require('./lib/AnalysisCode');
+const TransformCode = require( './lib/TransformCode');
 const loaderUtils = require ('loader-utils');
 
 function nejLoader(raw) {
@@ -16,16 +16,16 @@ function nejLoader(raw) {
     this.cacheable && this.cacheable();
 
     let {
-        code: sourceCode,
-        err: sourceError,
+        code: codeSplitCode,
+        err: codeSplitError,
         headCode,
         content
-    } = source({
+    } = CodeSplit({
         raw, filename
     });
 
-    if (sourceCode === -1) {
-        throw sourceError;
+    if (codeSplitCode === -1) {
+        throw codeSplitError;
     }
 
     const {
@@ -35,7 +35,7 @@ function nejLoader(raw) {
         rawDependencies,
         patchList,
         functionBody
-    } = analysis(content, {
+    } = AnalysisCode(content, {
         alias, filename
     });
 
@@ -43,7 +43,7 @@ function nejLoader(raw) {
         throw analysisError;
     }
 
-    content = transform({
+    content = TransformCode({
         dependencies,
         rawDependencies,
         patchList,
