@@ -1,5 +1,5 @@
-const CodeSplit = require('./lib/CodeSplit');
-const AnalysisCode = require('./lib/AnalysisCode');
+const CodeSplit = require('./lib/SplitCode');
+const AnalyseCode = require('./lib/AnalyseCode');
 const TransformCode = require( './lib/TransformCode');
 const loaderUtils = require ('loader-utils');
 
@@ -35,7 +35,7 @@ function nejLoader(raw) {
         rawDependencies,
         patchList,
         functionBody
-    } = AnalysisCode(content, {
+    } = AnalyseCode(content, {
         alias, filename
     });
 

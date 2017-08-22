@@ -1,4 +1,4 @@
-const AnalysisCode = require('../lib/AnalysisCode');
+const AnalysisCode = require('../lib/AnalyseCode');
 const TransformCode = require('../lib/TransformCode');
 
 const expect = require('chai').expect;

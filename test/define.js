@@ -1,4 +1,4 @@
-const isomorphicDefine = require('../lib/isomorphicDefine');
+const isomorphicDefine = require('../lib/define');
 const expect = require('chai').expect;
 
 describe('isomorphicDefine', function() {

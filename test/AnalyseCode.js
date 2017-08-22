@@ -1,4 +1,4 @@
-const analysis = require('../lib/AnalysisCode');
+const analysis = require('../lib/AnalyseCode');
 const expect = require('chai').expect;
 
 describe('analysis', function () {
