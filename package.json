@@ -8,12 +8,23 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "loader-utils": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.5.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImHype/nej-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ImHype/nej-loader/issues"
+  },
+  "homepage": "https://github.com/ImHype/nej-loader#readme"
 }
