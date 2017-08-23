@@ -1,5 +1,5 @@
 const CodeSplit = require('./lib/SplitCode');
-const AnalyseCode = require('./lib/AnalyseCode');
+const AnalyseCode = require('./lib/ParseCode');
 const TransformCode = require( './lib/TransformCode');
 const loaderUtils = require ('loader-utils');
 
