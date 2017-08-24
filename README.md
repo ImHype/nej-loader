@@ -1,14 +1,14 @@
 [![npm][npm]][npm-url]
 
-<div align="">
+<div align="center">
   <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
   <a href="https://github.com/webpack/webpack">
     <img width="200" height="200" vspace="" hspace="25"
       src="https://cdn.rawgit.com/webpack/media/e7485eb2/logo/icon.svg">
   </a>
-  <h1>NEJ Loader</h1>
-  <p>NEJ 模块化方式代码的 webpack 加载器<p>
 </div>
+<h1>NEJ Loader</h1>
+<p>NEJ 模块化方式代码的 webpack 加载器<p>
 
 <h2 align="">简介</h2>
 
