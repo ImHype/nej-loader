@@ -64,7 +64,8 @@ module.exports = {
 };
 ```
 
-### 配置项
+<h2 align="center">配置项</h2>
+
 
 字段名 | 作用
 ------------|-------
@@ -74,7 +75,7 @@ module.exports = {
 `isPatch` | 是否启用 `NEJ` 的平台兼容功能
 
 
-<h2 align="center">Maintainers</h2>
+<h2 align="center">主要贡献者</h2>
 
 <table>
   <tbody>
