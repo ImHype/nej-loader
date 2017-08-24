@@ -1,6 +1,7 @@
 const CodeSplit = require('./lib/SplitCode');
 const AnalyseCode = require('./lib/ParseCode');
 const TransformCode = require( './lib/TransformCode');
+const SourceMap = require( './lib/SourceMap');
 const loaderUtils = require ('loader-utils');
 
 function nejLoader(raw) {
@@ -19,7 +20,7 @@ function nejLoader(raw) {
         code: codeSplitCode,
         err: codeSplitError,
         headCode,
-        content
+        content: sourceContent
     } = CodeSplit({
         raw, filename
     });
@@ -35,7 +36,7 @@ function nejLoader(raw) {
         rawDependencies,
         patchList,
         functionBody
-    } = AnalyseCode(content, {
+    } = AnalyseCode(sourceContent, {
         alias, filename
     });
 
@@ -43,7 +44,7 @@ function nejLoader(raw) {
         throw analysisError;
     }
 
-    content = TransformCode({
+    const {content: targetContent, declarations} = TransformCode({
         dependencies,
         rawDependencies,
         patchList,
@@ -56,7 +57,19 @@ function nejLoader(raw) {
         isPatch
     });
 
-    return [headCode, content].join('');
+    const compiled = [headCode, targetContent].join('');
+    if (this.sourceMap) {
+        const sourceMap = SourceMap({
+            headCode,
+            sourceContent,
+            targetContent,
+            declarations,
+            filename
+        });
+
+        return this.callback(null, compiled, sourceMap.toJSON());
+    }
+    return compiled;
 }
 
 module.exports = nejLoader;

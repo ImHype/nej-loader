@@ -1,0 +1,1 @@
+{"version":3,"sources":["/Users/june/Works/nej-loader/test/SourceMap.js"],"names":[],"mappings":";;;;;AAKA;AACA","sourcesContent":["define(['{lib}index.js',\n    './b.js',\n    '//a.js',\n    'http://a.com/a.js'\n], function(a) {\n    a = 1;\n    return a;\n});"]}

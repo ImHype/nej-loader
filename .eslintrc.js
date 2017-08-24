@@ -3,6 +3,10 @@ module.exports = {
         "es6": true,
         "node": true
     },
+    "globals": {
+        "describe": true,
+        "it": true
+    },
     "extends": "eslint:recommended",
     "rules": {
         "indent": [
