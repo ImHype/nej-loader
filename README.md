@@ -10,7 +10,12 @@
   <p>NEJ 模块化方式代码的 webpack 加载器<p>
 </div>
 
-nej-loader 的作用是，使 webpack 能够识别我们 NEJ 模块化加载方式的代码。但不适用于 nej 自身的转换工作，请使用现有模块: [nej-commonjs](https://www.npmjs.com/package/nej-commonjs)
+<h2 align="center">简介</h2>
+
+* nej-loader 的作用，使 webpack 能够识别 NEJ 模块化的代码加载方式；
+* 不建议使用 nej-loader 来加载 nej 类库代码，请直接使用现有模块: [nej-commonjs]
+(https://www.npmjs.com/package/nej-commonjs)；
+* 支持 SourceMap，配置 `webpack.config.js` 中的 `devtool` 即可。
 
 <h2 align="center">安装</h2>
 
