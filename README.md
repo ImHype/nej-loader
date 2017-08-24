@@ -1,6 +1,6 @@
 [![npm][npm]][npm-url]
 
-<div align="center">
+<div align="">
   <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
   <a href="https://github.com/webpack/webpack">
     <img width="200" height="200" vspace="" hspace="25"
@@ -10,19 +10,19 @@
   <p>NEJ 模块化方式代码的 webpack 加载器<p>
 </div>
 
-<h2 align="center">简介</h2>
+<h2 align="">简介</h2>
 
 * 让 `webpack` 能够识别 `NEJ` 模块化加载方式的 `javascript` 代码，使用 `nej/define.js` 改造而来；
 * 不建议用它来加载 NEJ 自身类库，请直接使用现有 NPM 模块: [nej-commonjs](https://www.npmjs.com/package/nej-commonjs)；
 * 支持 SourceMap，配置 `webpack.config.js` 中的 `devtool` 即可。
 
-<h2 align="center">安装</h2>
+<h2 align="">安装</h2>
 
 ```bash
 npm install nej-loader
 ```
 
-<h2 align="center"><a href="https://webpack.js.org/concepts/loaders">使用</a></h2>
+<h2 align=""><a href="https://webpack.js.org/concepts/loaders">使用</a></h2>
 
 ```javascript
 const {join} = require('path');
@@ -64,7 +64,7 @@ module.exports = {
 };
 ```
 
-<h2 align="center">配置项</h2>
+<h2 align="">配置项</h2>
 
 
 字段名 | 作用
@@ -75,12 +75,12 @@ module.exports = {
 `isPatch` | 是否启用 `NEJ` 的平台兼容功能
 
 
-<h2 align="center">主要贡献者</h2>
+<h2 align="">主要贡献者</h2>
 
 <table>
   <tbody>
     <tr>
-      <td align="center">
+      <td align="">
         <img width="150" height="150"
         src="https://avatars2.githubusercontent.com/u/10825163?v=4&s=150">
         </br>
