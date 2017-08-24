@@ -10,7 +10,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^1.1.0",
+    "source-map": "^0.5.7"
   },
   "devDependencies": {
     "chai": "^3.5.0",
