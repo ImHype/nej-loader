@@ -80,7 +80,7 @@ module.exports = {
 <table>
   <tbody>
     <tr>
-      <td align="">
+      <td align="center">
         <img width="150" height="150"
         src="https://avatars2.githubusercontent.com/u/10825163?v=4&s=150">
         </br>
