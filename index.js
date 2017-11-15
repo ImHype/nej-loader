@@ -22,11 +22,12 @@ function nejLoader(raw) {
         outputAlias,
         replaceArgs,
         isPatch,
-        sourceMap: this.sourceMap
+        needSourceMap: this.sourceMap
     });
-
+    
     if (sourceMap) {
-        return this.callback(null, compiled, sourceMap);
+        var callback = this.async();
+        return callback(null, compiled, sourceMap);
     }
 
     return compiled;
